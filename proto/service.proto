@@ -1,0 +1,296 @@
+syntax = "proto3";
+option go_package = "/pb";
+
+enum Country {
+  USA = 0;
+  CHINA = 1;
+  TURKEY = 2;
+}
+
+enum DeliveryType {
+  AIR = 0;
+  GROUND = 1;
+  //PDD = 2;
+}
+
+enum Region {
+  BATKEN = 0;
+  JALAL_ABAD = 1;
+  ISSYK_KUL = 2;
+  NARYN = 3;
+  OSH = 4;
+  TALAS = 5;
+  CHUY = 6;
+}
+
+enum OrderStatus {
+  PROCESSING = 0;
+  PROCESSED = 1;
+  ARRIVED = 2;
+  REGISTERED = 3;
+  READY_FOR_SHIPPING = 4;
+  SHIPPED = 5;
+  CLEARANCE = 6;
+  SORTING = 7;
+  CONSOLIDATION = 8;
+  TO_PICKUP_POINT = 9;
+  IN_PICKUP_POINT = 10;
+  FOR_DELIVERY = 11;
+  OUT_FOR_DELIVERY = 12;
+  DELIVERED = 13;
+  CANCELED = 14;
+  DISPOSED = 15;
+  ON_HOLD = 16;
+  FOR_RETURN = 17;
+  RETURNED = 18;
+}
+
+message Empty {}
+
+message PPData {
+  uint32 id = 1;
+  Region region = 2;
+  string name = 3;
+  string address = 4;
+  string city = 5;
+  uint32 phone = 6;
+  double lat = 7;
+  double lon = 8;
+}
+
+message Address {
+  string name = 1;
+  string line1 = 2;
+  string line2 = 3;
+  string city = 4;
+  string state = 5;
+  int32 zip = 6;
+  string phone = 7;
+}
+
+//Main
+message Property {
+  DeliveryType deliveryType = 1;
+  uint32 price = 2;
+  uint32 deliveryTimeMin = 3;
+  uint32 deliveryTimeMax = 4;
+  repeated uint32 dispatchDays = 5;
+}
+
+message DeliveryTerm {
+  Country country = 1;
+  repeated Property properties = 2;
+}
+
+message MainResponse {
+  repeated DeliveryTerm terms = 1;
+  repeated PPData PPData = 2;
+}
+
+//Auth
+message LoginRequest {
+  string email = 1;
+  string password = 2;
+  string fireBaseToken = 3;
+}
+
+message LoginResponse {
+  string apiKey = 1;
+}
+
+message LogoutResponse {
+  Empty success = 1;
+}
+
+//Activities
+//Root
+message Rates {
+  uint32 CNA = 1;
+  uint32 CN = 2;
+  uint32 TR = 3;
+  uint32 US = 4;
+}
+
+message Addresses {
+  Country country = 1;
+  DeliveryType deliveryType = 2;
+  Address address = 3;
+}
+
+message Counters {
+  OrderStatus status = 1;
+  uint32 count = 2;
+}
+
+message ProfileResponse {
+  string name = 1;
+  uint32 phone = 2;
+  string email = 3;
+  uint64 tin = 4;
+  string customerCode = 5;
+  int32 balance = 6;
+  PPData PPData = 7;
+  uint32 USDRate = 8;
+  Rates rates = 9;
+  repeated Counters counters = 10;
+}
+
+message WarehouseAddressesResponse {
+  repeated Addresses addresses = 1;
+}
+
+message TrackingRequest {
+  string tracking = 1;
+}
+
+message TrackingData {
+  string timeStamp = 1;
+  string status = 2;
+  string statusNote = 3;
+}
+
+message TrackingResponse {
+  string lastStatus = 1;
+  PPData PPData = 2;
+  string name = 3;
+  string tracking = 4;
+  optional uint32 weight = 5;
+  repeated TrackingData trackingData = 6;
+}
+
+message GetNewsRequest {
+  uint32 offset = 1;
+}
+
+message NewsItem {
+  uint32 id = 1;
+  string date = 2;
+  string title = 3;
+  string text = 4;
+  string img = 5;
+}
+
+message GetNewsResponse {
+  repeated NewsItem newsItems = 1;
+}
+
+enum PaymentType {
+  ALL = 0;
+  REPLENISH = 1;
+  CHARGE = 2;
+  OTHER = 3;
+}
+
+message PaymentsHistoryRequest {
+    PaymentType sortBy = 1;
+    uint32 offset = 2;
+}
+
+message Payment {
+  uint32 id = 1;
+  string date = 2;
+  optional uint32 weight = 3;
+  optional uint32 awb = 4;
+  PaymentType type = 5;
+  int32 value = 6;
+  optional string notes = 7;
+}
+
+message PaymentsHistoryResponse {
+  repeated Payment payments = 1;
+}
+
+message PaymentsWeightStatistics {
+  Country country = 1;
+  DeliveryType deliveryType = 2;
+  optional uint32 weight = 3;
+}
+
+message PaymentsWeightStatisticsResponse {
+  string startDay = 1;
+  string endDay = 2;
+  repeated PaymentsWeightStatistics stats = 3;
+}
+
+enum TopUpType {
+  QR = 0;
+  COUPON = 1;
+}
+
+message QRProvider {
+  string name = 1;
+  string logo = 2;
+  string URL = 3;
+}
+
+message PaymentsTopUpRequest {
+  TopUpType topUpType = 1;
+  optional string couponCode = 2;
+}
+
+message PaymentsTopUpResponse {
+  string QR = 1;
+  string data = 2;
+  repeated QRProvider QRProviders = 3;
+}
+
+message OrderRootItem {
+  Country country = 1;
+  DeliveryType deliveryType = 2;
+  uint32 onWarehouse = 3;
+  uint32 inWay = 4;
+  uint32 inPP = 5;
+}
+
+message OrdersRootResponse {
+  repeated OrderRootItem items = 1;
+}
+
+message OrdersHistoryRequest {
+  Country country = 1;
+  DeliveryType deliveryType = 2;
+  uint32 offset = 3;
+}
+
+message Order {
+  uint32 id = 1;
+  string date = 2;
+  string tracking = 3;
+  string content = 4;
+  uint32 weight = 5;
+  uint32 awb = 6;
+}
+
+message OrdersHistoryResponse {
+  repeated Order orders = 1;
+}
+
+service Start {
+  rpc Main (Empty) returns (MainResponse) {}
+}
+
+service Auth {
+  rpc Login (LoginRequest) returns (LoginResponse) {}
+  rpc Logout (Empty) returns (LogoutResponse) {}
+}
+
+service Activities {
+  rpc Root(Empty) returns (ProfileResponse) {}
+  rpc WarehouseAddresses(Empty) returns (WarehouseAddressesResponse) {}
+  rpc Tracking(TrackingRequest) returns (TrackingResponse) {}
+}
+
+service Payments {
+  rpc History(PaymentsHistoryRequest) returns (PaymentsHistoryResponse) {}
+  rpc WeightStatistics(Empty) returns (PaymentsWeightStatisticsResponse) {}
+  rpc TopUp(PaymentsTopUpRequest) returns (PaymentsTopUpResponse) {}
+}
+
+service Orders {
+  rpc Root(Empty) returns (OrdersRootResponse) {}
+  rpc History(OrdersHistoryRequest) returns (OrdersHistoryResponse) {}
+}
+
+service News {
+  rpc Get(GetNewsRequest) returns (GetNewsResponse) {}
+}

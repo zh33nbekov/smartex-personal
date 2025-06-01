@@ -1,0 +1,54 @@
+.header__link {
+	background-color: var(--background);
+	width: clamp(40px, 37.7px + 0.71vw, 48px);
+	height: clamp(40px, 37.7px + 0.71vw, 48px);
+	border-radius: 8px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	user-select: none;
+	transition: background-color 0.3s ease-in-out;
+	border: 1px solid transparent;
+}
+.header__link.active {
+	border-color: var(--secondary);
+}
+.header__link.active svg path {
+	fill: var(--secondary);
+}
+@media (hover: hover) and (pointer: fine) {
+	.header__link:not(.active):hover {
+		background-color: var(--background-hover);
+	}
+}
+.header__link::before {
+	content: attr(data-count);
+	position: absolute;
+	top: 4px;
+	left: 24px;
+	width: 16px;
+	height: 16px;
+	border: 1px solid var(--white);
+	border-radius: 50%;
+	font-size: 8px;
+	line-height: 100%;
+	letter-spacing: 0%;
+	font-weight: 700;
+	color: var(--white);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	pointer-events: none;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+}
+.notification::before {
+	background-color: var(--success);
+}
+.message::before {
+	background-color: var(--info);
+}
+.setting::before {
+	background-color: var(--error);
+}

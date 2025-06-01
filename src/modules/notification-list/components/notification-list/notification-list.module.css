@@ -1,0 +1,99 @@
+.notification-list {
+	padding-top: clamp(14px, 10px + 1.24vw, 24px);
+	padding-right: clamp(10px, 6px + 1.24vw, 20px);
+	padding-left: clamp(10px, 6px + 1.24vw, 20px);
+	padding-bottom: clamp(1.875rem, 1.627rem + 1.24vw, 2.5rem);
+	background-color: var(--white);
+	border-radius: 16px;
+}
+.notification-list__header {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 30px;
+	margin-bottom: 24px;
+}
+.notification-list__title {
+}
+.notification-list__button {
+	max-width: 250px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.list {
+	max-height: 632px;
+	overflow-y: auto;
+	padding-right: 28px;
+	padding-right: clamp(15px, 9.8px + 1.61vw, 28px);
+}
+.list::-webkit-scrollbar {
+	width: 12px;
+}
+.list::-webkit-scrollbar-track {
+	background: var(--background);
+	border-radius: 9999px;
+	border: 1px solid var(--border);
+}
+.list::-webkit-scrollbar-thumb {
+	background-color: var(--primary);
+	border-radius: 9999px;
+}
+.list::-webkit-scrollbar-thumb:hover {
+	background-color: var(--primary-hover);
+}
+.list__header {
+	margin-bottom: 8px;
+}
+.header__date {
+	color: var(--secondary-text);
+	font-size: 13px;
+	line-height: 16px;
+	font-weight: 400;
+	font-family: var(--lato);
+}
+.list__block {
+	padding: 16px 20px;
+	background-color: var(--background);
+	border-radius: 16px;
+	margin-bottom: 8px;
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	width: 100%;
+}
+.list__icon {
+	min-width: 40px;
+	min-height: 40px;
+	background-color: var(--secondary);
+	border-radius: 9999px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.list__content {
+}
+@media screen and (max-width: 450px) {
+	.notification-list__button {
+		width: 44px;
+		height: 44px;
+		border-radius: 9999px;
+		padding: 11px;
+	}
+	.list::-webkit-scrollbar {
+		width: 8px;
+	}
+	.list__block {
+		align-items: initial;
+		flex-direction: column;
+	}
+	.list__icon {
+		align-self: flex-start;
+	}
+}
+@media screen and (max-width: 768px) {
+	.list::-webkit-scrollbar {
+		width: 10px;
+	}
+}

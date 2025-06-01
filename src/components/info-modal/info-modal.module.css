@@ -1,0 +1,137 @@
+.info-modal {
+	width: 900px;
+	height: 660px;
+	background-color: var(--primary);
+	border-radius: 16px;
+	display: flex;
+	align-items: center;
+	border: 1px solid var(--border);
+	position: relative;
+}
+.left-part {
+	background-color: var(--white);
+	max-width: 528px;
+	width: 100%;
+	height: 100%;
+	border-radius: 15px;
+	display: flex;
+	align-items: center;
+}
+.app-logo {
+	width: clamp(150px, 121.4px + 8.93vw, 250px);
+	margin: 0 auto;
+}
+.app-logo svg {
+	width: 100%;
+	height: 100%;
+}
+.left-part__container {
+	max-width: 250px;
+	max-width: 266px;
+	width: 100%;
+	margin: 0 auto;
+	max-height: 500px;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.left-part__title {
+	margin-bottom: 4px;
+}
+.left-part__title,
+.left-part__description {
+	text-align: center;
+}
+.left-part__description {
+	display: block;
+	color: var(--secondary-text);
+}
+.right-part {
+	max-width: clamp(9.375rem, 1.406rem + 23.18vw, 17.75rem);
+	max-height: 452px;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0 auto;
+}
+.right-part img {
+	width: 100%;
+	height: 100%;
+}
+.close-button {
+	position: absolute;
+	width: clamp(30px, 27.1px + 0.89vw, 40px);
+	height: clamp(30px, 27.1px + 0.89vw, 40px);
+	top: 14px;
+	right: 14px;
+	color: #fff;
+	border-radius: 50%;
+	transition: background-color 0.3s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+	.close-button:hover {
+		background-color: #ccccccc7;
+	}
+	.close-button:active {
+		background-color: #e4e4e4c7;
+	}
+}
+@media screen and (max-width: 950px) {
+	.info-modal {
+		width: 800px;
+		height: 600px;
+	}
+	.left-part {
+		max-width: 428px;
+	}
+}
+@media screen and (max-width: 850px) {
+	.info-modal {
+		width: 700px;
+		height: 540px;
+	}
+	.left-part {
+		max-width: 380px;
+	}
+}
+@media screen and (max-width: 750px) {
+	.info-modal {
+		width: 600px;
+	}
+	.left-part {
+		max-width: 333px;
+	}
+	.left-part__title {
+		font-size: 22px;
+	}
+}
+@media screen and (max-width: 650px) {
+	.info-modal {
+		width: 540px;
+	}
+	.left-part {
+		max-width: 300px;
+	}
+	.left-part__title {
+		font-size: 20px;
+	}
+}
+@media screen and (max-width: 550px) {
+	.info-modal {
+		width: clamp(18.75rem, -2.12rem + 104.35vw, 33.75rem);
+		max-height: 540px;
+		height: 100vh;
+	}
+	.left-part {
+		max-width: 100%;
+	}
+	.right-part {
+		display: none;
+	}
+	.close-button {
+		background-color: var(--icons);
+	}
+}

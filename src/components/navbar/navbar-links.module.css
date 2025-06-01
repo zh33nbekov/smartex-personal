@@ -1,0 +1,128 @@
+.navbar__nav {
+	width: 100%;
+}
+.nav__item {
+	margin: 8px 0;
+	width: 100%;
+}
+.nav__link {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+.nav__content {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+.nav__link.active {
+	border: 1px solid var(--secondary-hover);
+}
+.nav__link.active .nav__icon {
+	background-color: var(--secondary-hover);
+}
+.nav__link.has-children {
+	border-radius: 8px 8px 0 0;
+}
+.nav__link-label {
+	min-width: 95px;
+	font-size: clamp(15.5px, 14.9px + 0.07vw, 16px);
+}
+.nav__link-icon {
+	min-width: 9px;
+	min-height: 15px;
+}
+.nav__link-icon path {
+	fill: #fff;
+}
+.nav__link-icon,
+.nav__link-icon path {
+	transition:
+		transform 0.3s ease-in-out,
+		fill 0.3s ease-in-out;
+}
+.nav__link-icon.open path {
+	fill: var(--secondary-hover);
+}
+.nav__link {
+	font-family: var(--font-lato);
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 20px;
+	transition:
+		border 0.3s ease-in-out,
+		border-radius 0.3s ease-in-out;
+	border: 1px solid transparent;
+	border-radius: 8px;
+	padding: clamp(7px, 5.4px + 0.32vw, 10px) clamp(13px, 11.4px + 0.32vw, 16px);
+	color: var(--white);
+	display: flex;
+	align-items: center;
+}
+@media screen and (max-width: 834px) {
+	.nav__label {
+		display: none;
+	}
+	.nav__link-icon {
+		display: none;
+	}
+	.nav__link {
+		justify-content: center;
+	}
+}
+@media screen and (max-width: 440px) {
+	.nav__label,
+	.nav__link-icon {
+		display: block;
+	}
+	.nav__link-icon {
+		margin-left: auto;
+	}
+	.nav__link {
+		justify-content: space-between;
+	}
+}
+.nav__icon {
+	background-color: #959595;
+	width: clamp(30px, 224.6px + 1.06vw, 40px);
+	height: clamp(30px, 224.6px + 1.06vw, 40px);
+	flex-shrink: 0;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: background-color 0.3s ease-in-out;
+}
+.nav__subnav {
+	width: 100%;
+	background-color: var(--white);
+	color: #111;
+	border-radius: 0 0 8px 8px;
+}
+.subnav__link {
+	width: 100%;
+	font-family: var(--font-lato);
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 20px;
+	padding: 10px;
+	display: block;
+	transition: background-color 0.3s ease-in-out;
+}
+.subnav__link.active {
+	background-color: #cdd2e1;
+}
+@media (hover: hover) and (pointer: fine) {
+	.nav__link:hover {
+		border: 1px solid var(--secondary-hover);
+	}
+	.nav__link:hover .nav__icon {
+		background-color: var(--secondary-hover);
+	}
+	.nav__link:hover .nav__link-icon path {
+		fill: var(--secondary-hover);
+	}
+	.subnav__link:not(.active):hover {
+		background-color: var(--background-hover);
+	}
+}

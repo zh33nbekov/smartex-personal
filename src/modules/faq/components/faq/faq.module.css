@@ -1,0 +1,11 @@
+.faq {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 24px;
+}
+@media screen and (max-width: 834px) {
+	.faq {
+		flex-direction: column;
+	}
+}

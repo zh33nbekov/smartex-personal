@@ -1,0 +1,7 @@
+.profile-widgets {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+	column-gap: 24px;
+	row-gap: 16px;
+	margin: 24px 0;
+}

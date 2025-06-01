@@ -1,0 +1,9 @@
+.current-parcels {
+	margin-bottom: 35px;
+}
+.current-parcels__header {
+	display: flex;
+	align-items: center;
+	padding: 14px 8px;
+	border-bottom: 1px solid var(--border);
+}

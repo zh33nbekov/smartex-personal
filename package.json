@@ -1,0 +1,50 @@
+{
+	"name": "smx-personal",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "eslint . --fix",
+		"format": "prettier --write \"**/*.{ts,tsx,json,css,scss}\"",
+		"laf": "npm run lint && npm run format",
+		"gen:types": "ts-node scripts/generate-types.ts",
+		"gen:grpc": "ts-node scripts/generate-grpc.ts",
+		"gen:all": "npm run gen:types && npm run gen:grpc"
+	},
+	"dependencies": {
+		"@grpc/grpc-js": "^1.13.4",
+		"@hookform/resolvers": "^5.0.1",
+		"@protobuf-ts/plugin": "^2.11.0",
+		"@reduxjs/toolkit": "^2.8.2",
+		"clsx": "^2.1.1",
+		"framer-motion": "^12.9.2",
+		"next": "^15.3.1",
+		"react": "^19.0.0",
+		"react-dom": "^19.0.0",
+		"react-dropzone": "^14.3.8",
+		"react-hook-form": "^7.56.2",
+		"react-redux": "^9.2.0",
+		"recharts": "^2.15.3",
+		"zod": "^3.24.4",
+		"zustand": "^5.0.4"
+	},
+	"devDependencies": {
+		"@eslint/eslintrc": "^3.3.1",
+		"@tailwindcss/postcss": "^4.1.4",
+		"@types/node": "^20",
+		"@types/react": "^19",
+		"@types/react-dom": "^19",
+		"eslint": "^8",
+		"eslint-config-next": "15.0.4",
+		"eslint-config-prettier": "^10.1.2",
+		"eslint-plugin-prettier": "^5.2.6",
+		"postcss": "^8",
+		"prettier": "^3.5.3",
+		"tailwindcss": "^3.4.1",
+		"ts-node": "^10.9.2",
+		"ts-proto": "^2.7.0",
+		"typescript": "^5.8.3"
+	}
+}

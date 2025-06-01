@@ -1,0 +1,35 @@
+@layer module, state;
+.user-settings-panel {
+	max-width: 528px;
+	width: 100%;
+	padding: 24px 20px 40px;
+	border-radius: 16px;
+	background-color: var(--white);
+}
+.settings-group {
+	margin-bottom: 24px;
+}
+.settings-title {
+	font-family: var(--font-rubik);
+	font-weight: 500;
+	font-size: 18px;
+	line-height: 24px;
+	letter-spacing: 0px;
+	margin-bottom: 12px;
+}
+.settings-link {
+	border: 1px solid var(--border);
+	padding: 18px 16px;
+	width: 100%;
+	border-radius: 8px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: var(--background);
+	transition: background-color 0.3s ease-in-out;
+}
+@media (hover: hover) and (pointer: fine) {
+	.settings-link:hover {
+		background-color: var(--background-hover);
+	}
+}

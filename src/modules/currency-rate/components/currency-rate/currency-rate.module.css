@@ -1,0 +1,46 @@
+.currency-rate {
+	border-radius: 16px;
+	background-color: var(--white);
+	padding: 40px 20px;
+}
+.currency-rate__header {
+	display: flex;
+	justify-content: space-between;
+}
+.currency-rate__buttons {
+	max-width: 105px;
+	width: 100%;
+	padding: 6px;
+	border-radius: 4px;
+	height: 42px;
+	box-shadow: 0 1px 2px 0 #0000004d;
+}
+.currency-rate__button {
+	border-radius: 4px;
+	color: var(--secondary-text);
+	width: 50%;
+	height: 100%;
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 20px;
+	letter-spacing: 0;
+}
+.currency-rate__button.active {
+	background-color: var(--success);
+	color: var(--primary-text);
+	box-shadow:
+		0 1.12px 3.35px 0 #0000001a,
+		0 5.59px 5.59px 0 #00000017;
+	text-decoration: underline;
+	text-underline-offset: 3px;
+}
+.currency-rate__image {
+	max-width: 148px;
+	width: 100%;
+	margin: 3px auto;
+}
+.currency-rate__footer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}

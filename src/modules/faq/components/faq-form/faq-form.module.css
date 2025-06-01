@@ -1,0 +1,17 @@
+.faq-form {
+	position: sticky;
+	top: 0;
+	width: 50%;
+	padding: 24px 20px 40px 20px;
+	background-color: var(--white);
+	border-radius: 16px;
+}
+.faq-form__fields {
+	margin: 16px 0;
+}
+
+@media screen and (max-width: 834px) {
+	.faq-form {
+		width: 100%;
+	}
+}

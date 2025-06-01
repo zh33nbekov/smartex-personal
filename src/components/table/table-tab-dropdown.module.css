@@ -1,0 +1,25 @@
+.dropdown_menu {
+	display: none;
+	position: absolute;
+	top: 3.5rem;
+	min-width: 162px;
+	background-color: var(--white);
+	border-radius: 4px;
+	border: 1px solid var(--success);
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+}
+
+.dropdown_menu::after {
+	content: '';
+	position: absolute;
+	top: -6px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 12px;
+	height: 12px;
+	background: white;
+	border-left: 1px solid #22c55e;
+	border-top: 1px solid #22c55e;
+	transform: translateX(-50%) rotate(45deg);
+}
